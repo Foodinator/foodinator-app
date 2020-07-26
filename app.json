@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "foodinator",
+    "slug": "foodinator",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icons/icon.png",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#f59342"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  },
+  "facebookScheme":"fb2617323765250962",
+  "facebookAppId": "2617323765250962",
+  "facebookDisplayName":"Foodinator"
+}
