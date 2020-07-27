@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, Button } from 'react-native'
 import {Entypo} from "@expo/vector-icons"
-import { facebook } from "../../../constants/facebook"
 import * as Facebook from 'expo-facebook';
+import * as Google from 'expo-google-app-auth';
+import { config } from '../../../constants/configuration'
+
 class Login extends Component {
     constructor(props) {
         super(props)
@@ -18,17 +20,20 @@ class Login extends Component {
                 <Text>
                     Welcome to Foodinator
                 </Text>
-                <Button title="Login with Facebook" onPress={logIn}>
+                <Button title="Login with Facebook" onPress={facebookLogIn}>
                     <Entypo name="facebook" size= {32} color="#3b5998" />
+                </Button>
+                <Button title="Login with Google" onPress={googleLogIn}>
+                    <Entypo name="google-" />
                 </Button>
             </View>
         )
     }
 }
 
-async function logIn() {
+async function facebookLogIn() {
     try {
-      await Facebook.initializeAsync(facebook.id);
+      await Facebook.initializeAsync(config.facebookId);
       const {
         type,
         token,
@@ -48,7 +53,25 @@ async function logIn() {
     } catch ({ message }) {
       alert(`Facebook Login Error: ${message}`);
     }
-  }
+}
+
+async function googleLogIn() {
+    try {
+        const result = await Google.logInAsync({
+          androidClientId: config.androidClientId,
+          scopes: ['profile', 'email'],
+        });
+        
+        console.log("Result:", result)
+        if (result.type === 'success') {
+          return result.accessToken;
+        } else {
+          return { cancelled: true };
+        }
+      } catch (e) {
+        return { error: true };
+      }
+}
   
 
 const styles = StyleSheet.create({
