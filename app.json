@@ -21,9 +21,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "android": {
+      "package": "com.tromastrom.foodinator"
     }
   },
-  "facebookScheme":"fb2617323765250962",
+  "facebookScheme": "fb2617323765250962",
   "facebookAppId": "2617323765250962",
-  "facebookDisplayName":"Foodinator"
+  "facebookDisplayName": "Foodinator"
 }
